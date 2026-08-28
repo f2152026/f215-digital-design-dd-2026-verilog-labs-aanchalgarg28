@@ -18,6 +18,7 @@
 // ripple_adder.v and tb.v; nothing else needs to change.
 
 module FA_Gate(
+  
   input  a,
   input  b,
   input  cin,
