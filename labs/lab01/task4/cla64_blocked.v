@@ -17,7 +17,7 @@ module cla64_blocked(
     output [63:0] sum,
     output        cout
 );
-```
+
     wire [16:0] c;
 
     assign c[0] = cin;  
@@ -38,7 +38,7 @@ module cla64_blocked(
     cla4 block13 (.a(a[55:52]), .b(b[55:52]), .cin(c[13]), .sum(sum[55:52]), .cout(c[14]));
     cla4 block14 (.a(a[59:56]), .b(b[59:56]), .cin(c[14]), .sum(sum[59:56]), .cout(c[15]));
     cla4 block15 (.a(a[63:60]), .b(b[63:60]), .cin(c[15]), .sum(sum[63:60]), .cout(cout));
-```
+
 
 
  
