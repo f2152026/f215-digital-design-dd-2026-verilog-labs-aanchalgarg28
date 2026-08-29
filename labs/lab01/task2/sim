@@ -1,0 +1,46 @@
+#! /usr/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2009.vpi";
+S_0x5b949f5b1dc0 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0x5b949f5b1f50 .scope module, "FA_Gate" "FA_Gate" 3 20;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /INPUT 1 "cin";
+    .port_info 3 /OUTPUT 1 "sum";
+    .port_info 4 /OUTPUT 1 "cout";
+o0x7a2780ffa018 .functor BUFZ 1, C4<z>; HiZ drive
+o0x7a2780ffa048 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x5b949f5fb9d0/d .functor XOR 1, o0x7a2780ffa018, o0x7a2780ffa048, C4<0>, C4<0>;
+L_0x5b949f5fb9d0 .delay 1 (2,2,2) L_0x5b949f5fb9d0/d;
+L_0x5b949f5fbb60/d .functor AND 1, o0x7a2780ffa018, o0x7a2780ffa048, C4<1>, C4<1>;
+L_0x5b949f5fbb60 .delay 1 (2,2,2) L_0x5b949f5fbb60/d;
+o0x7a2780ffa078 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x5b949f5fbd40/d .functor XOR 1, o0x7a2780ffa078, L_0x5b949f5fb9d0, C4<0>, C4<0>;
+L_0x5b949f5fbd40 .delay 1 (2,2,2) L_0x5b949f5fbd40/d;
+L_0x5b949f5fbea0/d .functor AND 1, o0x7a2780ffa078, L_0x5b949f5fb9d0, C4<1>, C4<1>;
+L_0x5b949f5fbea0 .delay 1 (2,2,2) L_0x5b949f5fbea0/d;
+L_0x5b949f5fc030/d .functor OR 1, L_0x5b949f5fbb60, L_0x5b949f5fbea0, C4<0>, C4<0>;
+L_0x5b949f5fc030 .delay 1 (2,2,2) L_0x5b949f5fc030/d;
+v0x5b949f5b20e0_0 .net "a", 0 0, o0x7a2780ffa018;  0 drivers
+v0x5b949f5fb390_0 .net "b", 0 0, o0x7a2780ffa048;  0 drivers
+v0x5b949f5fb450_0 .net "cin", 0 0, o0x7a2780ffa078;  0 drivers
+v0x5b949f5fb520_0 .net "cout", 0 0, L_0x5b949f5fc030;  1 drivers
+v0x5b949f5fb5e0_0 .net "pc1", 0 0, L_0x5b949f5fbb60;  1 drivers
+v0x5b949f5fb6f0_0 .net "pc2", 0 0, L_0x5b949f5fbea0;  1 drivers
+v0x5b949f5fb7b0_0 .net "ps", 0 0, L_0x5b949f5fb9d0;  1 drivers
+v0x5b949f5fb870_0 .net "sum", 0 0, L_0x5b949f5fbd40;  1 drivers
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "-";
+    "FA_Gate.v";
